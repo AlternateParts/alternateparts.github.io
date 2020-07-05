@@ -39,6 +39,7 @@ minima:
 
 header_pages:
   - index.markdown # home page
+  - csp/index.html
 
 # Exclude from processing.
 # The following items will not be processed, by default.
