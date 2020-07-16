@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Cutting Stock Problem - 1D - How to cut Rods, Paper Rolls from Stock with minimum wastage
 permalink: /cutting-stock-problem
 ---
@@ -22,22 +22,22 @@ All these questions are address the name Cutting Stock Problem and it is studied
 
 ## 1D vs 2D Cutting Stock Problem
 If each next piece that we want requires a single cut to get, it's called 1D or One Dimensional Cutting Stock Problem. Examples include cutting of Paper Rolls, Fabric Rolls and Metal Rods.
-![1D Cutting Stock Problem example](./1d-example.png)
+![1D Cutting Stock Problem example](./csp-data/1d-example.png)
 
 
 If the cutting involves a rectuangular sheet cut into small rectangular sheets of required sizes, it's called 2D or Two Dimensional Cutting Stock Problem
 Examples includes Cutting of Glass Sheets and Metal Sheets.
-![2D Cutting Stock Problem example](./2d-example.png)
+![2D Cutting Stock Problem example](./csp-data/2d-example.png)
 
 
 This article discusses 1D Problem in depth and in the next article, we'll discuss the 2D Problem.
 For the sake of example, let us assume that we have standard rods of size 89 cm in our stock.
-![stock 89cm photo](./stock-rod.PNG)
+![stock 89cm photo](./csp-data/stock-rod.PNG)
 
 
 A customer order arrives and it says: They need:
 1 rod of 45 cm, 1 of 25 cm, 3 rods of 20 cm and 1 of 35 cm
-![Customer Order](./customer-order.PNG)
+![Customer Order](./csp-data/customer-order.PNG)
 
 
 ## Cutting without a plan
@@ -50,7 +50,7 @@ We move to the next rod for cutting. we cut: 20 cm, another 20 and another 20, w
 We start cutting the 3rd rod. we cut: 35 cm and we are left with 54 cm
 
 So with no planning for cuts, we ended up using 3 stock rods to satisfy the customer demand and our leftover is 19 cm, 29 cm and 54 cm. We might be able to use the leftover 29 and 54 cm rods in some future orders but 19 cm leftover will most likely go to waste because seeminly no customer needs rods less 20 cm.
-![Cut summery](./cut-summery.PNG)
+![Cut summery](./csp-data/cut-summery.PNG)
 
 This no planning for cuts approach is certainly not ideal. What if the next order requires a 60 cm rod. We cannot satisfy that with 29 and 54 cm rods.
 
@@ -65,7 +65,7 @@ Let us plan for cuts with the help a tool. I designed this simple tool to solve 
 This CSP Tool can plan both 1D and 2D Cutting Stock Problem. (The 2D part is not complete yet.)
 
 Let us focus on 1D tool which helps us in finding an optimal plan to cut your stock rods or stock fabric rolls so that minimum possible stock is used and waste is minimum too.
-![CSP Tool](./csp-too.png)
+![CSP Tool](./csp-data/csp-too.png)
 
 Here you see 2 tables. 
 In the top table, you specify the details of customer rods to cut. In the bottom table, you enter stock rods details. 
@@ -84,7 +84,7 @@ Enter size of stock rods in the bottom table: 89
 
 Notice that you don't need to write the units like cm or inch. You only specifiy size. click "Cut". You can see the plan:
 
-![Solution](./solution.PNG)
+![Solution](./csp-data/solution.PNG)
 In the diagram on the right, we see the plan of how to cut the rods. Each row specifies 1 stock rod and each box represents 1 small customer rod. Rods with same width or size have same color. And the blackish color specifies the waste  or the leftover part of stock rod.
 
 In the bottom right table, we can see the Usage or Utilization of each stock rod. 1st was utilized 95.5% and 89.9% of the 2nd was used. And here is the details of the cuts. You can also download these cut details as a CSV file and import to Microsoft Excel. Or simply copy and paste to Google sheets.
@@ -163,12 +163,7 @@ There are a few limitations with this tool at the moment
 [Google's OR Tools](https://developers.google.com/optimization) library was used in making this tool. They have great tutorials and examples that are easy to follow without any background in Operations Research. It is available for Python, C++, Java and C#.
 
 ### Practical Python AI Projects
-I also learned a lot from Professor Serge Kruk's book: "Practical Python AI projects"
+I also learned a lot from Professor Serge Kruk's book: [Practical Python AI Projects](https://amzn.to/3iPceJD)
 It is very easy to understand and totally recommended. In fact most of the code used in our CSP Tool is taken from this book.
 
 The 2D Cutting Stock Problem is even more interesting and challenging to solve. See you next time with 2D CSP. :)
-
-https://raw.githubusercontent.com/emadehsan/emadehsan.github.io/master/_posts/2020-01-29-object-detection.md
-
-https://emadehsan.com/p/object-detection
-[TODO put link to book's Amazon]
