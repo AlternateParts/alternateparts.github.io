@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Cutting Stock Problem - 1D - How to cut Rods, Paper Rolls from Stock with minimum wastage
+title: "Cutting Stock Problem - 1D - How to cut Rods, Paper Rolls from Stock with minimum wastage"
 permalink: /cutting-stock-problem
 ---
 
-If you have seen wide Paper or Fabric Rolls cut into smaller width rolls, or cutting of big metal rods 
+If you have seen wide Paper or Fabric Rolls cut into smaller width rolls, or cutting of big metal rods.
 
 You might have wondered:
 > ### How many ways there are to cut a big stock item into small pieces of required lengths?
