@@ -6,13 +6,13 @@ permalink: /cutting-stock-problem
 ---
 
 <p align="center">
-  <img alt="Cutting Stock Problem" src="/images/1d-example.png"/>
+  <img alt="Cutting Stock Problem" src="/images/csp-preview.png"/>
 </p>
 
 If you have seen wide Paper or Fabric Rolls cut into smaller width rolls, or cutting of big metal rods.
 
 You might have wondered:
-> ### How many ways there are to cut a big stock item into small pieces of required lengths?
+> ### How many ways are there to cut a big stock item into small pieces of required lengths?
 
 The answer is: Too many ways
 
@@ -23,11 +23,11 @@ Another question you could ask:
 > ### How to cut the required small pieces from the stock item so that minimum possible stock items are used?
 
 
-All these questions are address the name Cutting Stock Problem and it is studied under a sub-field of Applied Mathematics called Operations Research. People in Metal, Glass, Paper and Textile industry deal with this problem everyday.
+All these questions are addressed with the name 'Cutting Stock Problem' (CSP) and are studied under a sub-field of Applied Mathematics called Operations Research. People in the Metal, Glass, Paper and Textile industry deal with this problem everyday.
 
 
 ## 1D vs 2D Cutting Stock Problem
-If each next piece that we want requires a single cut to get, it's called 1D or One Dimensional Cutting Stock Problem. Examples include cutting of Paper Rolls, Fabric Rolls and Metal Rods.
+The are a couple of variations of CSP. If each next piece that we want requires a single cut to get, it's called 1D or One Dimensional Cutting Stock Problem. Examples include cutting of Paper Rolls, Fabric Rolls and Metal Rods.
 
 <p align="center">
   <img alt="1D Cutting Stock Problem example" src="/images/1d-example.png"/>
@@ -37,7 +37,7 @@ If each next piece that we want requires a single cut to get, it's called 1D or 
 </p>
 
 
-If the cutting involves a rectuangular sheet cut into small rectangular sheets of required sizes, it's called 2D or Two Dimensional Cutting Stock Problem
+If the cutting involves a rectangular sheet cut into small rectangular sheets of required sizes, it's called 2D or Two Dimensional Cutting Stock Problem
 Examples includes Cutting of Glass Sheets and Metal Sheets.
 <p align="center">
   <img alt="1D Cutting Stock Problem example" src="/images/2d-example.png"/>
@@ -78,13 +78,14 @@ We move to the next rod for cutting. we cut: 20 cm, another 20 and another 20, w
 
 We start cutting the 3rd rod. we cut: 35 cm and we are left with 54 cm
 
-So with no planning for cuts, we ended up using 3 stock rods to satisfy the customer demand and our leftover is 19 cm, 29 cm and 54 cm. We might be able to use the leftover 29 and 54 cm rods in some future orders but 19 cm leftover will most likely go to waste because seeminly no customer needs rods less 20 cm.
 <p align="center">
   <img alt="Cut summery" src="/images/cut-summery.PNG"/>
   <p align="center">
-    Cut summery
+    Cut summary
   </p>
 </p>
+
+So with no planning for cuts, we ended up using 3 stock rods to satisfy the customer demand and our leftover is 19 cm, 29 cm and 54 cm. We might be able to use the leftover 29 and 54 cm rods in some future orders but 19 cm leftover will most likely go to waste because seemingly no customer needs rods less than 20 cm.
 
 This no planning for cuts approach is certainly not ideal. What if the next order requires a 60 cm rod. We cannot satisfy that with 29 and 54 cm rods.
 
@@ -92,7 +93,7 @@ So, is there a way to satisfy this customer demand So that we use minimum possib
 
 
 ## CSP Tool - to plan the cuts
-Let us plan for cuts with the help a tool. I designed this simple tool to solve Cutting Stock Problem which is free to use and available at 
+Let us plan for cuts with the help a tool. We designed this simple open source tool to solve Cutting Stock Problem which is free to use and available at 
 
 > ### <a href="https://alternate.parts/csp">https://alternate.parts/csp</a>
 
@@ -111,9 +112,8 @@ Let us focus on 1D tool which helps us in finding an optimal plan to cut your st
 Here you see 2 tables. 
 In the top table, you specify the details of customer rods to cut. In the bottom table, you enter stock rods details. 
 
-Notice that you cannot specifiy the quantities of the stock rods for now. Actually this tool will tell you how many stock rods will be required to completely satisfy this demand.
-
-But I might add this feature soon so that you could limit the number stock rods to be used and satisfy maximum possible customer demand while staying in the limit.
+Notice that you cannot specify the quantities of the stock rods for now. Actually this tool will tell you how many stock rods will be required to completely satisfy this demand.
+(We might add this feature soon so that you could limit the number of stock rods to be used and satisfy maximum possible customer demand while staying in the limit.)
 
 Let's enter the sizes of customer rolls in the top table
 45 - 1
@@ -123,7 +123,7 @@ Let's enter the sizes of customer rolls in the top table
 
 Enter size of stock rods in the bottom table: 89
 
-Notice that you don't need to write the units like cm or inch. You only specifiy size. click "Cut". You can see the plan:
+Notice that you don't need to write the units like cm or inch. You only specify size. click "Cut". You can see the plan:
 
 <p align="center">
   <img src="/images/solution.PNG"/>
@@ -132,13 +132,12 @@ Notice that you don't need to write the units like cm or inch. You only specifiy
 </p>
 
 
-In the diagram on the right, we see the plan of how to cut the rods. Each row specifies 1 stock rod and each box represents 1 small customer rod. Rods with same width or size have same color. And the blackish color specifies the waste  or the leftover part of stock rod.
+In the diagram on the right, we see the plan of how to cut the rods. Each row specifies 1 stock rod and each box represents 1 small customer rod. Rods with the same width or size have the same color. And the blackish color specifies the waste  or the leftover part of the stock rod.
 
 In the bottom right table, we can see the Usage or Utilization of each stock rod. 1st was utilized 95.5% and 89.9% of the 2nd was used. And here is the details of the cuts. You can also download these cut details as a CSV file and import to Microsoft Excel. Or simply copy and paste to Google sheets.
 
 ## How it works
-Let us see how CSP Tool works behind the scenes
-It uses Google's OR-Tools library which is a fantastic library to solve problems like Cutting Stock Problem.
+Let us see how CSP Tool works behind the scenes. It uses Google's OR-Tools library which is a fantastic library to solve problems like Cutting Stock Problem.
 
 ```bash
 $ pip install ortools
@@ -151,7 +150,7 @@ OR-Tools is very straightforward to use. You specify the variables. Variables wi
   y = [ solver.IntVar(0, 1, f'y_{i}') for i in range(k[1]) ] 
 
   # x[i][j] = 3 means that small-roll width specified by i-th order
-  # must be cut from j-th order, 3 tmies 
+  # must be cut from j-th order, 3 times 
   x = [[solver.IntVar(0, b[i], f'x_{i}_{j}') for j in range(k[1])] \
       for i in range(num_orders)]
   
@@ -162,10 +161,10 @@ OR-Tools is very straightforward to use. You specify the variables. Variables wi
   nb = solver.IntVar(k[0], k[1], 'nb')
 ```
 
-Then you specify constraints. Constraints are limits within which, your algorithm must find a solution. In our case the constraints are that
+Then you specify constraints. Constraints are limits within which your algorithm must find a solution. In our case the constraints are that
 1. All the customer orders must be satisfied
 ```py
-  # consntraint: demand fullfilment
+  # constraint: demand fulfillment
   for i in range(num_orders):  
     # small rolls from i-th order must be at least as many in quantity
     # as specified by the i-th order
@@ -192,23 +191,27 @@ And then specify the objective. The objective is what is your main goal with thi
 ```
 
 The code for this algorithm is available at on [GitHub](https://github.com/emadehsan/csp)
-I will put this link in the description.
 
 ## Don't know programming? No worries!
 If you don't understand this programming part, no worries. You don't need to know programming to use the [CSP Tool](https://alternate.parts/csp).
 
-### Known issues/
+You can watch the explanation of CSP, demo of CSP Tool and some glass cutting in action in this accompanying video
+<p align="center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4WXtfO9JB20" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+### Known issues
 There are a few limitations with this tool at the moment
 * It only works with natural numbers. That is it does not work with decimal part
 * There is some bug in the code which will be fixed soon, but it introduces some extra small items in the result. If that happens to your results, the CSP Tool will alert you about it and you can exclude those items
 
 
-## Further Readigns
+## Further Readings
 ## Google's OR Tools
 [Google's OR Tools](https://developers.google.com/optimization) library was used in making this tool. They have great tutorials and examples that are easy to follow without any background in Operations Research. It is available for Python, C++, Java and C#.
 
 ### Practical Python AI Projects
-I also learned a lot from Professor Serge Kruk's book: [Practical Python AI Projects](https://amzn.to/3iPceJD)
+We also learned a lot from Professor Serge Kruk's book: [Practical Python AI Projects](https://amzn.to/3iPceJD)
 It is very easy to understand and totally recommended. In fact most of the code used in our CSP Tool is taken from this book.
 
 The 2D Cutting Stock Problem is even more interesting and challenging to solve. See you next time with 2D CSP. :)
