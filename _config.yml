@@ -33,7 +33,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-analytics
-  # - jekyll-sitemap
+  - jekyll-sitemap
 
 header_pages:
   - index.markdown # home page
