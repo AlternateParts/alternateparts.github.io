@@ -5,6 +5,10 @@ date:   2020-07-19 00:44:09 +0500
 permalink: /cutting-stock-problem
 ---
 
+<p align="center">
+  <img alt="Cutting Stock Problem" src="/images/1d-example.png"/>
+</p>
+
 If you have seen wide Paper or Fabric Rolls cut into smaller width rolls, or cutting of big metal rods.
 
 You might have wondered:
