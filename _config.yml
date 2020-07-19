@@ -32,10 +32,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-sitemap
-
-minima:
-  skin: solarized-dark
+#  - jekyll-sitemap
 
 header_pages:
   - index.markdown # home page
