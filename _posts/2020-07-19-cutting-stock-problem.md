@@ -191,9 +191,7 @@ The code for this algorithm is available at on [GitHub](https://github.com/emade
 I will put this link in the description.
 
 ## Don't know programming? No worries!
-If you don't understand this programming part, no worries. You don't need to know programming to use the CSP Tool.
-
-Just a reminder that CSP Tool is free to use and available at [alternate.parts/csp](https://alternate.parts/csp)
+If you don't understand this programming part, no worries. You don't need to know programming to use the [CSP Tool](https://alternate.parts/csp).
 
 ### Known issues/
 There are a few limitations with this tool at the moment
