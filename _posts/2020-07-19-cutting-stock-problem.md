@@ -200,10 +200,9 @@ You can watch the explanation of CSP, demo of CSP Tool and some glass cutting in
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4WXtfO9JB20" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
-### Known issues
-There are a few limitations with this tool at the moment
-* It only works with natural numbers. That is it does not work with decimal part
-* There is some bug in the code which will be fixed soon, but it introduces some extra small items in the result. If that happens to your results, the CSP Tool will alert you about it and you can exclude those items
+### Thinks to keep in mind
+* Works with integers only: IP (Integer Programming) problems working with integers only. If you have some values that have decimal part, you can multiply all of your inputs with some number that will make them integers (or close estimation).
+* You cannot specify units: Whether your input is in Inches or Meters, you have to keep a record of that yourself and conversions if any.
 
 
 ## Further Readings
