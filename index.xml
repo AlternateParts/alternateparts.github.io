@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Route Optimization APIs - AlternateParts</title>
+    <link>/</link>
+    <description>Recent content in Home on Route Optimization APIs - AlternateParts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>We at AlternateParts are a team of Engineers and Computer Scientists trying to provide state of the art Optimization tools. At the moment, via APIs.
+The companies that offer Optimization Softwares, quite ironically, make these tools available for Suboptimal price and performance.
+Our Products At the moment, Route Optimization APIs is our main service. Sometimes we also publish some non-commercial experimental tools for engineers and hackers to experiment with.
+Route Optimation (RO) APIs AlternateParts - RO APIs are very easy to integrate APIs for developers and startups to integrate Route Optimization feature into your products.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>/privacy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/privacy/</guid>
+      <description>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
+By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.
+Interpretation and Definitions Interpretation The words of which the initial letter is capitalized have meanings defined under the following conditions.</description>
+    </item>
+    
+    <item>
+      <title>Support</title>
+      <link>/support/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/support/</guid>
+      <description>Something we can help with? Feel free to send it our way and we will try to answer as fast as we can.</description>
+    </item>
+    
+  </channel>
+</rss>
