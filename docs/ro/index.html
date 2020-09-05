@@ -1,0 +1,1026 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Route Optimization API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-2f7eea54.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-e9bde216.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/alternateparts-logo-0f03d4bf.jpg" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#route-optimization-ro-apis" class="toc-h1 toc-link" data-title="Route Optimization (RO) APIs">Route Optimization (RO) APIs</a>
+          </li>
+          <li>
+            <a href="#how-it-works" class="toc-h1 toc-link" data-title="How it works?">How it works?</a>
+          </li>
+          <li>
+            <a href="#how-to-use-api" class="toc-h1 toc-link" data-title="How to use API">How to use API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#important-notes" class="toc-h2 toc-link" data-title="Important notes">Important notes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#1-check-api-status" class="toc-h1 toc-link" data-title="1. Check API Status">1. Check API Status</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#2-sign-up" class="toc-h1 toc-link" data-title="2. Sign up">2. Sign up</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#url-parameters" class="toc-h2 toc-link" data-title="URL Parameters">URL Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#3-obtain-api-key" class="toc-h1 toc-link" data-title="3. Obtain API key">3. Obtain API key</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#url-parameters-2" class="toc-h2 toc-link" data-title="URL Parameters">URL Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#4-organizations" class="toc-h1 toc-link" data-title="4. Organizations">4. Organizations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#4-1-create-an-organization" class="toc-h2 toc-link" data-title="4.1. Create an Organization">4.1. Create an Organization</a>
+                  </li>
+                  <li>
+                    <a href="#4-2-fetch-all-organizations" class="toc-h2 toc-link" data-title="4.2. Fetch all Organizations">4.2. Fetch all Organizations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#5-tasks" class="toc-h1 toc-link" data-title="5. Tasks">5. Tasks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#5-1-create-a-task" class="toc-h2 toc-link" data-title="5.1. Create a Task">5.1. Create a Task</a>
+                  </li>
+                  <li>
+                    <a href="#5-2-fetch-all-tasks" class="toc-h2 toc-link" data-title="5.2. Fetch all Tasks">5.2. Fetch all Tasks</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#6-drivers" class="toc-h1 toc-link" data-title="6. Drivers">6. Drivers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#6-1-create-a-driver" class="toc-h2 toc-link" data-title="6.1. Create a Driver">6.1. Create a Driver</a>
+                  </li>
+                  <li>
+                    <a href="#6-2-fetch-all-drivers" class="toc-h2 toc-link" data-title="6.2. Fetch all Drivers">6.2. Fetch all Drivers</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#7-optimize-route" class="toc-h1 toc-link" data-title="7. Optimize Route">7. Optimize Route</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-10" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#url-parameters-8" class="toc-h2 toc-link" data-title="URL Parameters">URL Parameters</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a target='_blank' href='https://github.com/AlternateParts/api-docs'>Improve this documentation</a></li>
+            <li><a target='_blank' href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+            <li>© <a href="https://alternate.parts/">AlternateParts 2020</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='route-optimization-ro-apis'>Route Optimization (RO) APIs</h1>
+<p>Welcome to Route Optimization (RO) API docs. Use RO APIs to create, manage and optimize the routes for your pickup &amp; delivery operations.</p>
+
+<p>With these APIs, you can </p>
+
+<ul>
+<li>Sign up for AlternateParts</li>
+<li>Login and obtain your RO API key to access these APIs</li>
+<li>Create and read organizations </li>
+<li>Create and read tasks</li>
+<li>Create and read drivers</li>
+<li>Organize all the drivers, tasks and optimizations operations under an organization</li>
+</ul>
+<h1 id='how-it-works'>How it works?</h1>
+<p>An overview of how everything is related in Route Optimization service</p>
+
+<p><img src="images/RouteOptimizationAPI-9341ca1e.jpg" alt="Overview of Route Optimization operations" /></p>
+
+<ul>
+<li><p>You create your account by Signing up</p></li>
+<li><p>You add one or more <code>Organization</code> to your account. If you deliver orders to customers of your clients, each Organization can represent one of your clients. It is a way of organizing related operations under one umbrella. If you only deliver your own organization&#39;s orders, you can just create a single organization</p></li>
+<li><p>You can add <code>Drivers</code> to each Organization. These drivers will be responsible for delivery the tasks to specified locations after Route Optimization is done</p></li>
+<li><p>Each day you deliver multiple orders to your customers or customers of your clients. Each of these delivery orders / shipment task are called <code>Tasks</code>. Every task has a location where it must be delivered</p></li>
+</ul>
+<h1 id='how-to-use-api'>How to use API</h1>
+<ul>
+<li><p>Obtain API key by signing up for AlternateParts</p></li>
+<li><p>Every API endpoint starts with </p></li>
+</ul>
+
+<p><code>https://api.alternate.parts/vrp/api/v1/</code></p>
+
+<ul>
+<li>Include the API key in header of every request as </li>
+</ul>
+
+<p><code>Authorization: &lt;API_KEY&gt;</code></p>
+
+<ul>
+<li><p>Add organizations</p></li>
+<li><p>Add drivers to your organzation</p></li>
+<li><p>Add tasks that you want to deliver at specified locations</p></li>
+<li><p>Call Route Optimization endpoint to assign tasks to drivers in an efficient way where each driver has to cover minimum distance</p></li>
+</ul>
+<h2 id='important-notes'>Important notes</h2>
+<ul>
+<li><p>At the moment, Route Optimization API only optimize for distance. Support for vehicle capacity optimization and delivery time optimization will be available form next release</p></li>
+<li><p><code>&lt;OBJECT_ID&gt;</code>, <code>&lt;ORG_ID&gt;</code>, <code>&lt;TASK_ID&gt;</code>, <code>&lt;DRIVER_ID&gt;</code> are strings IDs that are unique for every object (row) in every class (table)</p></li>
+<li><p><code>&lt;API_KEY&gt;</code> is also a string</p></li>
+<li><p>Use your API keys from the server or cloud workers. Do not use API keys on the front-ends where there is a chance that someone can find it. This means you must run your code on the server or a dedicated worker computer to call RO APIs</p></li>
+</ul>
+
+<!-- all API info must be in application.py -->
+<h1 id='1-check-api-status'>1. Check API Status</h1>
+<blockquote>
+<p>A test call to root API endpoint</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/"</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"vrp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v0.1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>To check whether RO APIs are up and running, make a POST request to the root API endpoint:</p>
+
+<p><code>https://api.alternate.parts/vrp/api/v1/</code></p>
+
+<aside class="success">
+<code>"api": "v1"</code> in the response means all good.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/</code></p>
+<h1 id='2-sign-up'>2. Sign up</h1>
+<blockquote>
+<p>Provide your email and a strong password</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/signup"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-d</span> <span class="s1">'{"email": "&lt;EMAIL&gt;", "password": "&lt;PASSWORD&gt;"}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/signup"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+  <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"email"</span><span class="p">:</span> <span class="s">"&lt;EMAIL&gt;"</span><span class="p">,</span> 
+  <span class="s">"password"</span><span class="p">:</span> <span class="s">"&lt;PASSWORD&gt;"</span>
+  <span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains id of newly added account</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;OBJECT_ID&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Use your company email to sign up for AlternateParts to use RO APIs. Also provide a strong password. </p>
+
+<aside class="warning">
+It's important that you use an active email address because we will use this email to communicate with you important things.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/signup</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>true</td>
+<td>your company email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>true</td>
+<td>a strong password</td>
+</tr>
+</tbody></table>
+<h1 id='3-obtain-api-key'>3. Obtain API key</h1>
+<blockquote>
+<p>Use your account&#39;s email and password to obtain your API key</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/login"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+  <span class="nt">-d</span> <span class="s1">'{"email": "&lt;EMAIL&gt;", "password": "&lt;PASSWORD&gt;"}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/login"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"email"</span><span class="p">:</span> <span class="s">"&lt;EMAIL&gt;"</span><span class="p">,</span> 
+  <span class="s">"password"</span><span class="p">:</span> <span class="s">"&lt;PASSWORD&gt;"</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains your API key and account ID</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;API_KEY&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;OBJECT_ID&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The Login API endpoint returns the API key associated with your account.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/login</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>true</td>
+<td>your account&#39;s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>true</td>
+<td>your password</td>
+</tr>
+</tbody></table>
+<h1 id='4-organizations'>4. Organizations</h1>
+<p>Organize your operations under an Organization. Creating organization is as simple as providing <code>name</code> and <code>description</code> to the right API endpoint. </p>
+
+<p>Creating multiple organizations is a good way to organize tasks and drivers if you have different drivers for each organization. If you provide delivery services to multiple different clients, create multiple organizations, each represening a single client.</p>
+<h2 id='4-1-create-an-organization'>4.1. Create an Organization</h2>
+<blockquote>
+<p>Provide name and description about your organization</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/orgs"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Authorization: &lt;API_KEY&gt;"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+  <span class="nt">-d</span> <span class="s1">'{"name": "&lt;NAME&gt;", "description": "&lt;DESCRIPTION&gt;"}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/orgs"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;API_KEY&gt;"</span><span class="p">,</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"&lt;NAME&gt;"</span><span class="p">,</span> 
+  <span class="s">"description"</span><span class="p">:</span> <span class="s">"&lt;DESCRIPTION&gt;"</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains ID of newly created organization</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;OBJECT_ID&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Create a single organization. To create multiple organizations, create them one by one.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/orgs</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>name of organization</td>
+</tr>
+<tr>
+<td>description</td>
+<td>true</td>
+<td>details of organization</td>
+</tr>
+</tbody></table>
+<h2 id='4-2-fetch-all-organizations'>4.2. Fetch all Organizations</h2>
+<blockquote>
+<p>All organizations associated with your account</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/orgs/all"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Authorization: &lt;API_KEY&gt;"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/orgs/all"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;API_KEY&gt;"</span><span class="p">,</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+  <span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains your organizations</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"organizations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Dec 2020 13:02:10 GMT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Delivery and Pickup Service"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"North ways"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orgId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ORG_ID&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Dec 2020 13:02:10 GMT"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2021 13:10:44 GMT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pickup and Delivery Service"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kalam CWK"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orgId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ORG_ID&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2021 13:10:44 GMT"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Use this API endpoint to fetch all the organizations that you have created.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/orgs/all</code></p>
+<h1 id='5-tasks'>5. Tasks</h1>
+<p>Tasks are the delivery reponsibility units that are assigned to each driver on a given duty. They represent the individual orders that you have to deliver to the customers.</p>
+<h2 id='5-1-create-a-task'>5.1. Create a Task</h2>
+<blockquote>
+<p>Provide organization ID, name and pin location of the task</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/tasks"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Authorization: &lt;API_KEY&gt;"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+  <span class="nt">-d</span> <span class="s1">'{"orgId": "&lt;ORG_ID&gt;", "name": "&lt;NAME&gt;", "location": [&lt;LATITUDE&gt;, &lt;LONGITUDE&gt;]}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/tasks"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;API_KEY&gt;"</span><span class="p">,</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+  <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"orgId"</span><span class="p">:</span> <span class="s">"&lt;ORG_ID&gt;"</span><span class="p">,</span> 
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"&lt;NAME&gt;"</span><span class="p">,</span> 
+  <span class="s">"location"</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">LATITUDE</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">LONGITUDE</span><span class="o">&gt;</span><span class="p">]</span>
+  <span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains ID of newly created task</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;OBJECT_ID&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Each task has a location where it must be delivered. And every task belongs to an organization.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/tasks</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orgId</td>
+<td>true</td>
+<td>ID of organization to which this task belongs</td>
+</tr>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>name of the task</td>
+</tr>
+<tr>
+<td>location</td>
+<td>true</td>
+<td>array containing latitude and longitude of where to drop the task</td>
+</tr>
+</tbody></table>
+<h2 id='5-2-fetch-all-tasks'>5.2. Fetch all Tasks</h2>
+<blockquote>
+<p>All tasks that belong to provided organization ID</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/tasks/all"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Authorization: &lt;API_KEY&gt;"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+  <span class="nt">-d</span> <span class="s1">'{"orgId": "&lt;ORG_ID&gt;"}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/tasks/all"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;API_KEY&gt;"</span><span class="p">,</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+  <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"orgId"</span><span class="p">:</span> <span class="s">"&lt;ORG_ID&gt;"</span><span class="p">,</span> 
+  <span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains tasks belonging to provided orgId</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 13:11:09 GMT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">31.5203696</span><span class="p">,</span><span class="w">
+        </span><span class="mf">74.3587473</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drop at Zero Point"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"taskId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;TASK_ID&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 13:11:09 GMT"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 13:11:49 GMT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">31.500275</span><span class="p">,</span><span class="w">
+        </span><span class="mf">74.321346</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pick from International City Airport"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"taskId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;TASK_ID&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 13:11:49 GMT"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 22:56:33 GMT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">31.468279</span><span class="p">,</span><span class="w">
+        </span><span class="mf">74.3428</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pico road drop off"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"taskId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;TASK_ID&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 22:56:33 GMT"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Use this API endpoint to fetch all the tasks that belong to your specified organiztion.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/tasks/all</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orgId</td>
+<td>true</td>
+<td>ID of organization from which you want to fetch tasks</td>
+</tr>
+</tbody></table>
+<h1 id='6-drivers'>6. Drivers</h1>
+<p>A driver is responsible for delivering assigned tasks to the specified locations.</p>
+
+<p>You can think of drivers as delivery vehicles as well if you Optimize Route based on vehicle types.</p>
+
+<aside class="notice">
+Location of the driver could be his/her residence or start location that usually remains the same. You can also set it to equal to the location of your warehouse.
+</aside>
+<h2 id='6-1-create-a-driver'>6.1. Create a Driver</h2>
+<blockquote>
+<p>Provide organization ID, name and location of driver</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/drivers"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Authorization: &lt;API_KEY&gt;"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+  <span class="nt">-d</span> <span class="s1">'{"orgId": "&lt;ORG_ID&gt;", "name": "&lt;NAME&gt;", "location": [&lt;LATITUDE&gt;, &lt;LONGITUDE&gt;]}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/drivers"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;API_KEY&gt;"</span><span class="p">,</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+  <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"orgId"</span><span class="p">:</span> <span class="s">"&lt;ORG_ID&gt;"</span><span class="p">,</span> 
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"&lt;NAME&gt;"</span><span class="p">,</span> 
+  <span class="s">"location"</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">LATITUDE</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">LONGITUDE</span><span class="o">&gt;</span><span class="p">]</span>
+  <span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains ID of newly created driver</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;OBJECT_ID&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>A driver belongs to an organization and while Route Optimization operation, they can only be assigned tasks within their organization.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/drivers</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orgId</td>
+<td>true</td>
+<td>ID of organization to which this driver belongs</td>
+</tr>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>name of the driver</td>
+</tr>
+<tr>
+<td>location</td>
+<td>true</td>
+<td>array containing latitude and longitude of driver&#39;s daily starting location</td>
+</tr>
+</tbody></table>
+<h2 id='6-2-fetch-all-drivers'>6.2. Fetch all Drivers</h2>
+<blockquote>
+<p>All drivers that belong to provided organization ID</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/drivers/all"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Authorization: &lt;API_KEY&gt;"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+  <span class="nt">-d</span> <span class="s1">'{"orgId": "&lt;ORG_ID&gt;"}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/drivers/all"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;API_KEY&gt;"</span><span class="p">,</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+  <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"orgId"</span><span class="p">:</span> <span class="s">"&lt;ORG_ID&gt;"</span><span class="p">,</span> 
+  <span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains tasks belonging to provided orgId</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"drivers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 13:15:22 GMT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"driverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;DRIVER_ID&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">73.223</span><span class="p">,</span><span class="w">
+        </span><span class="mf">32.653</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khan"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 13:15:22 GMT"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 13:35:04 GMT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"driverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;DRIVER_ID&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">73.223</span><span class="p">,</span><span class="w">
+        </span><span class="mf">32.653</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sheeda"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 18 Aug 2020 13:35:04 GMT"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Use this API endpoint to fetch all the drivers working for specified organization.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/drivers/all</code></p>
+<h3 id='url-parameters-7'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orgId</td>
+<td>true</td>
+<td>ID of organization from which you want to fetch the drivers</td>
+</tr>
+</tbody></table>
+<h1 id='7-optimize-route'>7. Optimize Route</h1>
+<blockquote>
+<p>Optimize the Route for provided tasks and provided number of drivers</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.alternate.parts/vrp/api/v1/optimize"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Authorization: &lt;API_KEY&gt;"</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+  <span class="nt">-d</span> <span class="s1">'{"numDrivers": &lt;INTEGER&gt;, "taskIds": [&lt;TASK_IDs&gt;]}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.alternate.parts/vrp/api/v1/optimize"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"&lt;API_KEY&gt;"</span><span class="p">,</span>
+  <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span> 
+  <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"numDrivers"</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">INTEGER</span><span class="o">&gt;</span><span class="p">,</span> 
+  <span class="s">"taskIds"</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">TASK_IDs</span><span class="o">&gt;</span><span class="p">]</span>
+  <span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Response contains tasks belonging to provided orgId</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"route"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">route</span><span class="w"> </span><span class="err">information.</span><span class="w"> </span><span class="err">tasks</span><span class="w"> </span><span class="err">&lt;&gt;</span><span class="w"> </span><span class="err">drivers</span><span class="w"> </span><span class="err">mapping</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Optimize Route for provided tasks.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST https://api.alternate.parts/vrp/api/v1/optimize</code></p>
+<h3 id='url-parameters-8'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numDrivers</td>
+<td>true</td>
+<td>Number of drivers who will be part of this delivery operation</td>
+</tr>
+<tr>
+<td>taskIds</td>
+<td>true</td>
+<td>array containing the IDs of tasks that must be routed and optimized</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
