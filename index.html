@@ -29,6 +29,37 @@
 
   
 
+
+  
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('mnferydkbt6m');
+</script>
+
+
+
 </head>
 
 <body class='page page-home'>
@@ -287,6 +318,26 @@ while you focus on buliding great Customer Experiences</p>
 
 
             <div class="col-12 mb-2">
+                <div class="service service-summary mb-5">
+                    <div class="service-content">
+                        <h2 class="service-title">
+                            <a name="how-it-works">
+                                Why yet another Route Optimization API?
+                            </a>
+                        </h2>
+                        <p>
+                            The companies that currently offer <i>optimization</i> software quite ironically make these tools available at a <i>suboptimal</i> price and performance.
+                        </p>
+                        <p>
+                            Most startup donot need these enterprise solutions from day one. Neither can they afford these. That is why, Route Optimization APIs by AlternateParts are built from ground up for efficiency and affordability.
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+
                 <div class="">
                     <h2 class="">Listen about major releases</h2>
                     <p class="mb-1" id="subscribeMsg">Only releases. No marketing emails</p>
@@ -384,7 +435,7 @@ while you focus on buliding great Customer Experiences</p>
     
 
     
-    <script type="text/javascript" src="/js/libs/library.min.1986e597450a077e064b18f59ff4f7f1eaefcfe3bd2765bf422b13c65c8d2f37.js"></script>
+    <script type="text/javascript" src="/js/libs/library.min.73458470d9fc47113a883fc74fb1d297684c14bb5b371f6f300d407911ba2a59.js"></script>
     
 
 
