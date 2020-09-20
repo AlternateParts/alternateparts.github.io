@@ -44,7 +44,7 @@ function updateSignupMessage(msg) {
 }
 
 async function sendApiKey(email) {
-    const url = 'http://api.alternate.parts/ro/api/v1/signup';
+    const url = 'https://api.alternate.parts/ro/api/v1/signup';
     const response = await fetch(url, {
         method: 'POST',
         headers: {
