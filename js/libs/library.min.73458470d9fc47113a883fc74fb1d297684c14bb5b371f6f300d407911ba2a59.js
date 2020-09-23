@@ -5,6 +5,6 @@ await listener()}});}
 function isValidEmail(email){const re=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;return re.test(String(email).toLowerCase());}
 async function hideEmailBox(){document.getElementById('emailBox').innerHTML='';updateSubscribeMsg('Thank you for your interest :)');}
 function updateSubscribeMsg(msg){document.getElementById('subscribeMsg').innerText=msg;}
-async function saveEmail(email){const url='https://api.alternate.parts/vrp/api/v1/subscribe';const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})});console.log(await response.json())
+async function saveEmail(email){const url='https://api.alternate.parts/ro/api/v1/subscribe';const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})});console.log(await response.json())
 hideEmailBox()}
 registerSubscribeListener()

@@ -49,7 +49,7 @@
 // }
 
 // async function saveEmail(email) {
-//     const url = 'http://api.alternate.parts/vrp/api/v1/subscribe';
+//     const url = 'http://api.alternate.parts/ro/api/v1/subscribe';
 //     const response = await fetch(url, {
 //         method: 'POST',
 //         headers: {
