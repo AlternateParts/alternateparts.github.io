@@ -38,7 +38,7 @@ Dushanbe, Tajikistan 🇹🇯
 
 Baysun, Uzbekistan 🇺🇿
 
-Samarqand, Uzbekistan 🇺🇿
+Samarkand, Uzbekistan 🇺🇿
 
 Bukhara, Uzbekistan 🇺🇿
 
@@ -73,7 +73,7 @@ But as cyclists, we are interested in visiting the cities on our way, we are not
 ![Open Tour TSP](/images/nomad-cyclist/open-tsp-route.png)
 
 ## Distance Matrix
-Distance Matrix is the starting point to formulating almost any optimization problem involving a path. E.g. Shortest Path Problem, Traveling Salesman Problem and Vehicle Routing Problem.
+Distance Matrix is the starting point to formulating almost any optimization problem involving a path. E.g. Shortest Path Problem, Traveling Salesman Problem, Vehicle Routing Problem and Route Optimization for logistics.
 
 Have a look at the following Distance Matrix:
 
@@ -194,7 +194,7 @@ s = pywraplp.Solver('TSP', pywraplp.Solver.GLOP_LINEAR_PROGRAMMING)
 ## Decision Variable
 In simple words, decision variables are the variables that will contain the output of the Linear Programming algorithm. The decision made by our algorithm!
 
-For TSP, a decision variable will be a 2D list of the same size as Distance Matrix. It will contain `1` in the cells whose crosponding roads must be visited and hence part of the output route. And `0` at roads that must not be traveled.
+For TSP, a decision variable will be a 2D list of the same size as Distance Matrix. It will contain `1` in the cells whose corresponding roads must be visited and hence part of the output route. And `0` at roads that must not be traveled.
 
 ![Decision Variable for Traveling Salesman Problem](/images/nomad-cyclist/decision-variable-tsp.png)
 
@@ -252,7 +252,7 @@ We know that any closed path consisting of 6 cities has 6 arcs (edges / roads) c
 
 But we cannot find all possible subtours and include them in our constraint. A way to avoid such subtours is that on the first run of our algorithm, we find a solution and if it consists of subtours, we run the algorithm again and this time we tell it to keep those subtours unclosed. We keep repeating the process until we find a single optimal tour that covers all cities instead of small disconnected subtours.
 
-To model this as a constraint, we check 
+Let's model this constraint:
 
 ```py
 # Subtours from previous run (if any)
